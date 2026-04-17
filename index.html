@@ -3,86 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Yudi & Salsa App</title>
+    <title>Yudi & Salsa ❤️</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
     <div id="login-page" class="page active">
-        <div class="login-box">
-            <h2>Masuk Yusal</h2>
-            <input type="text" id="username" placeholder="Username">
-            <input type="password" id="password" placeholder="Password">
-            <button onclick="login()">Masuk</button>
-            <p id="login-error" style="color: red; display: none;">ID atau Password salah!</p>
+        <div class="login-box glass-effect">
+            <div class="avatar-couple">👩‍❤️‍👨</div>
+            <h2>Ruang Yusal</h2>
+            <p class="subtitle">Silakan masuk, Sayang</p>
+            <div class="input-container">
+                <i class="fas fa-user"></i>
+                <input type="text" id="username" placeholder="Username">
+            </div>
+            <div class="input-container">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" placeholder="Password">
+            </div>
+            <button class="btn-primary" onclick="login()">Masuk <i class="fas fa-sign-in-alt"></i></button>
+            <p id="login-error" class="error-msg">Aduh, ID atau Password salah nih!</p>
         </div>
     </div>
 
     <div id="home-page" class="page">
-        <div class="header">
-            <h2>Hai, <span id="user-display"></span>! ❤️</h2>
+        <div class="header-main">
+            <h2>Hai, <span id="user-display"></span>! 👋</h2>
+            <p>Mau ngapain kita hari ini?</p>
         </div>
         <div class="menu-container">
-            <button class="menu-btn" onclick="goToPage('chat-page')">💬 Live Chat</button>
-            <button class="menu-btn" onclick="goToPage('kasir-page')">💼 Alat Konter Salsa</button>
-            <button class="menu-btn" onclick="goToPage('game-page')">🎮 Ruang Game</button>
+            <button class="card-btn" onclick="goToPage('chat-page')">
+                <div class="icon-box chat-icon"><i class="fas fa-comments"></i></div>
+                <div class="text-box">
+                    <h3>Bucin Chat</h3>
+                    <p>Ngobrol real-time berdua</p>
+                </div>
+                <i class="fas fa-chevron-right arrow"></i>
+            </button>
+
+            <button class="card-btn" onclick="goToPage('kasir-page')">
+                <div class="icon-box kasir-icon"><i class="fas fa-calculator"></i></div>
+                <div class="text-box">
+                    <h3>Alat Kasir Salsa</h3>
+                    <p>Biar kerjanya ga pusing</p>
+                </div>
+                <i class="fas fa-chevron-right arrow"></i>
+            </button>
+
+            <button class="card-btn" onclick="goToPage('game-page')">
+                <div class="icon-box game-icon"><i class="fas fa-gamepad"></i></div>
+                <div class="text-box">
+                    <h3>Ruang Game</h3>
+                    <p>Main bareng real-time</p>
+                </div>
+                <i class="fas fa-chevron-right arrow"></i>
+            </button>
         </div>
     </div>
 
     <div id="chat-page" class="page">
-        <div class="header">
-            <button class="back-btn" onclick="goBack()">⬅️</button>
-            <h2>Bucin Chat</h2>
+        <div class="header-nav">
+            <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i></button>
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="profile-pic" alt="Profile">
+            <div class="chat-title">
+                <h2>Ruang Rindu</h2>
+                <span class="online-status">🟢 Online berdua</span>
+            </div>
         </div>
-        <div id="chat-box"></div>
+        <div id="chat-box" class="wa-bg"></div>
         <div class="chat-input-area">
-            <input type="text" id="message-input" placeholder="Ketik pesan...">
-            <button onclick="sendMessage()">Kirim</button>
+            <input type="text" id="message-input" placeholder="Ketik pesan..." onkeypress="handleEnter(event)">
+            <button class="send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
 
     <div id="kasir-page" class="page">
-        <div class="header">
-            <button class="back-btn" onclick="goBack()">⬅️</button>
-            <h2>Alat Hitung Salsa</h2>
+        <div class="header-nav">
+            <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i></button>
+            <h2>Alat Konter Ny. Salsa</h2>
         </div>
         <div class="kasir-content">
-            <h3>Hitung Voucher</h3>
-            <div class="input-group">
-                <label>Nama Voucher</label>
-                <input type="text" id="vocer-nama" placeholder="Contoh: Axis 3GB">
-                <label>Stok Awal</label>
-                <input type="number" id="vocer-awal" placeholder="Contoh: 23">
-                <label>Sisa Stok</label>
-                <input type="number" id="vocer-sisa" placeholder="Contoh: 18">
-                <label>Harga Jual (per pcs)</label>
-                <input type="number" id="vocer-harga" placeholder="Contoh: 15000">
-                <button onclick="hitungVocer()">Hitung Pendapatan</button>
+            <div class="kasir-card">
+                <h3><i class="fas fa-ticket-alt"></i> Hitung Voucher</h3>
+                <div class="input-grid">
+                    <input type="text" id="vocer-nama" placeholder="Nama (Cth: Axis 3GB)">
+                    <input type="number" id="vocer-awal" placeholder="Stok Awal (Cth: 23)">
+                    <input type="number" id="vocer-sisa" placeholder="Sisa (Cth: 18)">
+                    <input type="number" id="vocer-harga" placeholder="Harga Jual (Cth: 15000)">
+                </div>
+                <button class="btn-calc" onclick="hitungVocer()"><i class="fas fa-check-circle"></i> Hitung Pemasukan</button>
+                <div id="hasil-vocer" class="hasil-box">-</div>
             </div>
-            <p id="hasil-vocer" class="hasil-box">-</p>
 
-            <h3>Hitung Chip & Dana</h3>
-            <div class="input-group">
-                <label>Modal Chip (B)</label>
-                <input type="number" id="chip-modal" placeholder="Contoh: 26.9">
-                <label>Sisa Chip (B)</label>
-                <input type="number" id="chip-sisa" placeholder="Contoh: 6.6">
-                <label>Total Uang Cash (Rp)</label>
-                <input type="number" id="uang-cash" placeholder="Contoh: 1015000">
-                <button onclick="hitungChip()">Hitung Admin & Terjual</button>
+            <div class="kasir-card">
+                <h3><i class="fas fa-coins"></i> Hitung Chip & Dana</h3>
+                <div class="input-grid">
+                    <input type="number" id="chip-modal" placeholder="Modal (B) Cth: 26.9">
+                    <input type="number" id="chip-sisa" placeholder="Sisa (B) Cth: 6.6">
+                    <input type="number" id="uang-cash" placeholder="Uang Laci (Rp)">
+                </div>
+                <button class="btn-calc" onclick="hitungChip()"><i class="fas fa-check-circle"></i> Cek Laporan</button>
+                <div id="hasil-chip" class="hasil-box">-</div>
             </div>
-            <p id="hasil-chip" class="hasil-box">-</p>
         </div>
     </div>
 
     <div id="game-page" class="page">
-        <div class="header">
-            <button class="back-btn" onclick="goBack()">⬅️</button>
-            <h2>Ruang Game</h2>
+        <div class="header-nav">
+            <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i></button>
+            <h2>Tic-Tac-Toe Bucin</h2>
         </div>
         <div class="game-content">
-            <p>Game Multiplayer Real-time akan datang di update selanjutnya! 🚀</p>
+            <div class="game-status" id="game-status">Menunggu pemain...</div>
+            <div class="tictactoe-board">
+                <div class="cell" onclick="makeMove(0)" id="cell-0"></div>
+                <div class="cell" onclick="makeMove(1)" id="cell-1"></div>
+                <div class="cell" onclick="makeMove(2)" id="cell-2"></div>
+                <div class="cell" onclick="makeMove(3)" id="cell-3"></div>
+                <div class="cell" onclick="makeMove(4)" id="cell-4"></div>
+                <div class="cell" onclick="makeMove(5)" id="cell-5"></div>
+                <div class="cell" onclick="makeMove(6)" id="cell-6"></div>
+                <div class="cell" onclick="makeMove(7)" id="cell-7"></div>
+                <div class="cell" onclick="makeMove(8)" id="cell-8"></div>
+            </div>
+            <button class="btn-calc" style="margin-top:20px;" onclick="resetGame()"><i class="fas fa-sync-alt"></i> Main Ulang</button>
         </div>
     </div>
 
