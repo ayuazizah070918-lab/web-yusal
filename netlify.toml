@@ -1,8 +1,0 @@
-[build]
-  command = ""
-  publish = "."
-
-# Memaksa Netlify untuk mengabaikan Next.js
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-  enabled = false
