@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Yudi & Salsa App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="login-page" class="page active">
+        <div class="login-box">
+            <h2>Masuk Yusal</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="login()">Masuk</button>
+            <p id="login-error" style="color: red; display: none;">ID atau Password salah!</p>
+        </div>
+    </div>
+
+    <div id="home-page" class="page">
+        <div class="header">
+            <h2>Hai, <span id="user-display"></span>! ❤️</h2>
+        </div>
+        <div class="menu-container">
+            <button class="menu-btn" onclick="goToPage('chat-page')">💬 Live Chat</button>
+            <button class="menu-btn" onclick="goToPage('kasir-page')">💼 Alat Konter Salsa</button>
+            <button class="menu-btn" onclick="goToPage('game-page')">🎮 Ruang Game</button>
+        </div>
+    </div>
+
+    <div id="chat-page" class="page">
+        <div class="header">
+            <button class="back-btn" onclick="goBack()">⬅️</button>
+            <h2>Bucin Chat</h2>
+        </div>
+        <div id="chat-box"></div>
+        <div class="chat-input-area">
+            <input type="text" id="message-input" placeholder="Ketik pesan...">
+            <button onclick="sendMessage()">Kirim</button>
+        </div>
+    </div>
+
+    <div id="kasir-page" class="page">
+        <div class="header">
+            <button class="back-btn" onclick="goBack()">⬅️</button>
+            <h2>Alat Hitung Salsa</h2>
+        </div>
+        <div class="kasir-content">
+            <h3>Hitung Voucher</h3>
+            <div class="input-group">
+                <label>Nama Voucher</label>
+                <input type="text" id="vocer-nama" placeholder="Contoh: Axis 3GB">
+                <label>Stok Awal</label>
+                <input type="number" id="vocer-awal" placeholder="Contoh: 23">
+                <label>Sisa Stok</label>
+                <input type="number" id="vocer-sisa" placeholder="Contoh: 18">
+                <label>Harga Jual (per pcs)</label>
+                <input type="number" id="vocer-harga" placeholder="Contoh: 15000">
+                <button onclick="hitungVocer()">Hitung Pendapatan</button>
+            </div>
+            <p id="hasil-vocer" class="hasil-box">-</p>
+
+            <h3>Hitung Chip & Dana</h3>
+            <div class="input-group">
+                <label>Modal Chip (B)</label>
+                <input type="number" id="chip-modal" placeholder="Contoh: 26.9">
+                <label>Sisa Chip (B)</label>
+                <input type="number" id="chip-sisa" placeholder="Contoh: 6.6">
+                <label>Total Uang Cash (Rp)</label>
+                <input type="number" id="uang-cash" placeholder="Contoh: 1015000">
+                <button onclick="hitungChip()">Hitung Admin & Terjual</button>
+            </div>
+            <p id="hasil-chip" class="hasil-box">-</p>
+        </div>
+    </div>
+
+    <div id="game-page" class="page">
+        <div class="header">
+            <button class="back-btn" onclick="goBack()">⬅️</button>
+            <h2>Ruang Game</h2>
+        </div>
+        <div class="game-content">
+            <p>Game Multiplayer Real-time akan datang di update selanjutnya! 🚀</p>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
+
